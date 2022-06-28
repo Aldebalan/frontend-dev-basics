@@ -5,9 +5,9 @@
 		<artifactId>frontend-dev-basics</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>ch02</artifactId>
+	<artifactId>ch03</artifactId>
 	<packaging>war</packaging>
-
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.build.outputEncoding>UTF-8</project.build.outputEncoding>
@@ -20,7 +20,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>ch02</finalName>
+		<finalName>ch03</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
