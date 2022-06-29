@@ -20,6 +20,7 @@ ul, ol	{ list-style-type: none }
 	border-radius: 10px 10px 0 0;
 	margin-right: 2px;
 	float: right;
+	cursor: pointer;
 }
 .tab-box li.selected {
 	background-color: #fc6;
@@ -34,15 +35,29 @@ ul, ol	{ list-style-type: none }
 	line-height: 200px;
 }
 </style>
+<script>
+// DOM Event Model Level0: Inline: HTML Tag에 바로 적용하기
+var liSelected = null;
+function onTabClicked(el) {
+	if(liSelected != null) {
+		// unselect
+		liSelected.className = '';
+	}
+	
+	// select
+	el.className = 'selected';
+	liSelected = el;
+}
+</script>
 </head>
 <body>
 <div class="tab-box">
 	<ul>
-        <li>메뉴 5</li>
-        <li>메뉴 4</li>
-        <li class="selected">메뉴 3</li>
-        <li>메뉴 2</li>
-        <li>메뉴 1</li>
+        <li onclick='onTabClicked(this)'>메뉴5</li>
+        <li onclick='onTabClicked(this)'>메뉴4</li>
+        <li onclick='onTabClicked(this)'>메뉴3</li>
+        <li onclick='onTabClicked(this)'>메뉴2</li>
+        <li onclick='onTabClicked(this)'>메뉴1</li>
     </ul>
     <div>
     	탭뷰입니다.
