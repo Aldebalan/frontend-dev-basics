@@ -32,3 +32,4 @@ console.log("2" === 2);     // false
 console.log(true === 1);    // false
 console.log(4 === 2);       // false
 console.log(new Number(4) === new Number(4));   // false
+
