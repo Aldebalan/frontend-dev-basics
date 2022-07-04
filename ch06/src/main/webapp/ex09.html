@@ -4,32 +4,26 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-	window.addEventListener("load", function() {
-		var imgElement = document.createElement("img");
-		
-		// setAttribute 사용
-		// 표준 Attribute <=> prperty			(o)
-		// property => 표준 Attribute			(o)
-		// property => 비표준 Attribute		(x)
-		imgElement.setAttribute("src", "https://static.toiimg.com/thumb/msid-67586673,width-800,height-600,resizemode-75,imgsize-3918697,pt-32,y_pad-40/67586673.jpg");
+window.addEventListener("load", function(){
+	var imgElement = document.createElement("img");
+	
+	// (표준 attribute[prop(o)], 비표준 attibute[prop(x)]) 읽기/쓰기를 위해
+	// getAttribute/setAttribute 를 사용한다.
+	imgElement.setAttribute("src", "https://static.toiimg.com/thumb/msid-67586673,width-800,height-600,resizemode-75,imgsize-3918697,pt-32,y_pad-40/67586673.jpg");
 		imgElement.setAttribute("style","width: 200px");
 		imgElement.setAttribute("alt","Cat");
+	imgElement.setAttribute('no1', 10); // 비표준 속성은 사용할 때 prefix 'data-'를 달아 'data-no1'로 사용한다.  
+	
+	imgElement['no2'] = 10; // 비표준 속성은 사용할 때 prefix 'data-'를 달아 'data-no2'로 사용한다.
+	imgElement['title'] = 'cute cat';
 
-		// 왜 property가 안됨?
-		imgElement.setAttribute('data-no', 10);
-
-		// property => 표준 Attribute			(o)
-		imgElement['title'] = 'cute cat';
-
-		// property => 비표준 Attribute		(x)
-		imgElement['no'] = 10;					// property
-		
-		setTimeout(function() {
-			document.body.appendChild(imgElement);
-			console.log(imgElement['no'], imgElement.getAttribute("no"));
-			console.log(imgElement.alt, imgElement['data-no'], imgElement.getAttribute("data-no"));
-		}, 2000);
-	});
+	
+	setTimeout(function(){
+		document.body.appendChild(imgElement);
+		console.log(imgElement.alt, imgElement.no1);
+		console.log(imgElement.getAttribute("no2"), imgElement.getAttribute("title"));
+	}, 2000);
+});
 </script>
 </head>
 <body>
