@@ -3,6 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+	window.addEventListener("load", function() {
+		var imgElement = document.createElement("img");
+		// src modify later
+		imgElement.src = "https://static.toiimg.com/thumb/msid-67586673,width-800,height-600,resizemode-75,imgsize-3918697,pt-32,y_pad-40/67586673.jpg";
+		imgElement.style.width = "200px";
+		imgElement.alt = "Cat";
+		imgElement.title = "cute cat";
+		
+		setTimeout(function () {
+			document.body.appendChild(imgElement);
+		}, 2000);
+	});
+</script>
 </head>
 <body>
 	<h1 id='h' data-no='10'>DOM(Document Object Model)</h1>

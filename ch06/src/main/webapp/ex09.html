@@ -3,6 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+	window.addEventListener("load", function() {
+		var imgElement = document.createElement("img");
+		
+		// setAttribute 사용
+		// 표준 Attribute <=> prperty			(o)
+		// property => 표준 Attribute			(o)
+		// property => 비표준 Attribute		(x)
+		imgElement.setAttribute("src", "https://static.toiimg.com/thumb/msid-67586673,width-800,height-600,resizemode-75,imgsize-3918697,pt-32,y_pad-40/67586673.jpg");
+		imgElement.setAttribute("style","width: 200px");
+		imgElement.setAttribute("alt","Cat");
+
+		// 왜 property가 안됨?
+		imgElement.setAttribute('data-no', 10);
+
+		// property => 표준 Attribute			(o)
+		imgElement['title'] = 'cute cat';
+
+		// property => 비표준 Attribute		(x)
+		imgElement['no'] = 10;					// property
+		
+		setTimeout(function() {
+			document.body.appendChild(imgElement);
+			console.log(imgElement['no'], imgElement.getAttribute("no"));
+			console.log(imgElement.alt, imgElement['data-no'], imgElement.getAttribute("data-no"));
+		}, 2000);
+	});
+</script>
 </head>
 <body>
 	<h1>DOM(Document Object Model)</h1>
