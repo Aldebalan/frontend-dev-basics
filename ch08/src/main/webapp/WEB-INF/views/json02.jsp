@@ -13,10 +13,61 @@
 // 2. DOMContentLoaded: DOM만 로딩(CSSOM x, img x) 
 window.addEventListener("DOMContentLoaded", function(){
 	document
-		.getElementById("data")
+		.getElementsByTagName("button")[0]
 		.addEventListener("click", function(){
 			var xhr = null;
-		})
+			
+			if(window.ActiveXObject) {	// <= IE9
+				xhr = new ActiveXObject("Microsoft.XMLHTTP");
+			} else if(window.XMLHttpRequest) {	// Standard Browser
+				xhr = new XMLHttpRequest();
+			} else {
+				console.log('AJAX 기능을 사용할 수 없습니다.');
+				return;
+			}
+			
+			xhr.addEventListener("readystatechange", function() {
+				if(this.readyState == XMLHttpRequest.UNSET) {	// 0
+					// request가 초기화 되기 이전
+					console.log("State: UNSET");
+				} else if(this.readyState == XMLHttpRequest.OPENED) {	// 1
+					// 서버와 연결이 성공
+					console.log("State: OPENED");
+				} else if(this.readyState == XMLHttpRequest.HEADERS_RECEIVED) {	// 2
+					// 서버가 request를 받았을 때
+					console.log("State: HEADERS_RECEIVED");
+				} else if(this.readyState == XMLHttpRequest.LOADING) {	// 3
+					// response를 받아서 처리중(response body를 파싱)
+					console.log("State: LOADING");
+				} else if(this.readyState == XMLHttpRequest.DONE) {	// 4
+					// response 처리가 끝남(response 파싱 완료)
+					console.log("State: DONE");
+				
+					if(this.status != 200) {
+						console.error("error" + this.status);
+						return;
+					}
+					
+					//console.log(this.reponseText, typeof (this.responseText));
+					
+					if(response.result === 'fail') {
+						console.error(response.message);
+						return;
+					} 
+					
+					var vo = response.data;
+					var htmls = "";
+					htmls += ("<h3>" + vo.no + "</h3>");
+					htmls += ("<h4>" + vo.name + "</h4>");
+					htmls += ("<h5>" + vo.message + "</h5>");
+					
+					document.getElementById("data").innerHTML = htmls;
+				}
+			});
+			
+			xhr.open("get", "${pageContext.request.contextPath }/api/json", true);
+			xhr.send();
+		});
 });
 </script>
 </head>
