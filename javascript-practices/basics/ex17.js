@@ -26,4 +26,3 @@ var f2 = function(s1, s2) {
 f2("hi", "");
 f2.call(o, 'hi', 'again');
 f2.apply(o, ['hi', 'again']);
-
