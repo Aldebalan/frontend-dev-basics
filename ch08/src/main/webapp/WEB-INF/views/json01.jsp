@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <script src="${pageContext.request.contextPath}/jquery/jquery-3.6.0.js"></script>
 <script>
- $(function () {
+$(function(){
 	$("button").click(function() {
 		$.ajax({
 			url: "${pageContext.request.contextPath }/api/json",
@@ -17,10 +17,16 @@
 			type: "get",
 			dataType: "json",
 			success: function(response) {
-				var htmls = "",
-				htmls += "<h3>" + response.no + "+</h3>";
-				htmls += "<h4>" + response.name + "+</h4>";
-				htmls += "<h5>" + response.message + "+</h5>";
+				if(response.result === 'fail') {
+					console.error(response.message);
+					return;
+				} 
+				
+				var vo = response.data;
+				var htmls = "";
+				htmls += ("<h3>" + vo.no + "</h3>");
+				htmls += ("<h4>" + vo.name + "</h4>");
+				htmls += ("<h5>" + vo.message + "</h5>");
 				
 				$("#data").html(htmls);
 			},
@@ -29,13 +35,13 @@
 			}
 		});
 	});
- });
+});
 </script>
 </head>
 <body>
-	 <h1>AJAX test: JSON format Data: $.ajax() 함수 사용하기</h1>
-	 
-	 <button>데이터 가져오기</button>
-	 <div id="data"></div>
+	<h1>AJAX test: JSON format Data: $.ajax() 함수 사용하기</h1>
+	
+	<button>데이터 가져오기</button>
+	<div id="data"></div>
 </body>
 </html>
