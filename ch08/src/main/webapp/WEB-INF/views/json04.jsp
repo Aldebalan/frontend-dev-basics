@@ -11,11 +11,18 @@
 <script>
 $(function(){
 	$("button").click(function() {
+		var vo = {
+			name: '둘리',
+			password: '1234',
+			message: '호이~'
+		};
+		
 		$.ajax({
-			url: "${pageContext.request.contextPath }/api/json",
-			async: true,	// default true
-			type: "get",
-			dataType: "json",
+			url: "${pageContext.request.contextPath }/api/post02",
+			type: "post",	// method
+			dataType: "json",	// 응답 포맷
+			contentType: "application/json",	// 요청 바디 데이터 포맷, default
+			data: JSON.stringify(vo),
 			success: function(response) {
 				if(response.result === 'fail') {
 					console.error(response.message);
