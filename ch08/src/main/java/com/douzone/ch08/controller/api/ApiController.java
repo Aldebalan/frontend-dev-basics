@@ -10,7 +10,7 @@ import com.douzone.ch08.dto.JSONResult;
 import com.douzone.ch08.vo.GuestbookVo;
 
 @Controller
-@RequestMapping("/api")
+@RequestMapping("/text")
 public class ApiController {
 	@ResponseBody
 	@RequestMapping("/text")
