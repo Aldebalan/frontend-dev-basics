@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/text")
+@RequestMapping("/test")
 public class ApiTestController {
 	@RequestMapping("/text")
 	public String text() {
@@ -25,14 +25,15 @@ public class ApiTestController {
 	public String json02() {
 		return "json02";
 	}
-	
+
 	@RequestMapping("/json03")
 	public String json03() {
 		return "json03";
 	}
-	
+
 	@RequestMapping("/json04")
 	public String json04() {
 		return "json04";
 	}
+	
 }

@@ -10,7 +10,7 @@ import com.douzone.ch08.dto.JSONResult;
 import com.douzone.ch08.vo.GuestbookVo;
 
 @Controller
-@RequestMapping("/text")
+@RequestMapping("/api")
 public class ApiController {
 	@ResponseBody
 	@RequestMapping("/text")
@@ -44,7 +44,7 @@ public class ApiController {
 		
 		return JSONResult.success(vo);
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value="/post02", method=RequestMethod.POST)
 	public JSONResult post02(@RequestBody GuestbookVo vo) {
@@ -54,4 +54,5 @@ public class ApiController {
 		
 		return JSONResult.success(vo);
 	}
+
 }

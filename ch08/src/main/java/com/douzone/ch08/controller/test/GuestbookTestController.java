@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/test/gb")
 public class GuestbookTestController {
-
+	
 	// add
 	@RequestMapping("/ex01")
 	public String ex01() {
 		return "gb/ex01";
 	}
-
+	
 	// list
 	@RequestMapping("/ex02")
 	public String ex02() {
@@ -24,5 +24,4 @@ public class GuestbookTestController {
 	public String ex03() {
 		return "gb/ex03";
 	}
-
 }
