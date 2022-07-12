@@ -8,7 +8,3 @@ const print = function(strs, end='\n') {
 
 print(['Always','with','me']);
 print(['Always','with','me'], ' ');
-
-
-
-
