@@ -13,6 +13,21 @@ console.log(myArith.substract(10, 20));
 // 대신 * as ~ 를 사용해서 전체 import 대상을 하나의 객체로 받을 수 있다.
 import * as m from './ex09.03.mjs';
 console.log(m.add(10, 20));
-// import destructing
+
+// import destructing I
 import {substract} from './ex09.03.mjs';
 console.log(substract(10, 20));
+
+// 04
+// import destructing II
+import {add} from './ex09.04.mjs';
+console.log(add(10, 20));
+
+// 05
+import math from './ex09.05.mjs';
+import * as math2 from './ex09.05.mjs';
+console.log(math.divide(4, 2));
+console.log(math.multiply(4, 2));
+console.log(math2.add(4, 2));
+console.log(math2.substract(4, 2));
+
