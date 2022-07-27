@@ -24,7 +24,7 @@ fetch('param-data', function(error, data){
     console.log(data);
 });
 
-// test01: fail
+// test02: fail
 fetch('param-error', function(error, data){
     if(error) {
         console.error(error);
